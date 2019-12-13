@@ -9,11 +9,16 @@
 /* Begin PBXBuildFile section */
 		D33F9C80236FA191007E3A3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9C7F236FA191007E3A3D /* AppDelegate.swift */; };
 		D33F9C82236FA191007E3A3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9C81236FA191007E3A3D /* SceneDelegate.swift */; };
-		D33F9C84236FA191007E3A3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9C83236FA191007E3A3D /* ContentView.swift */; };
 		D33F9C86236FA193007E3A3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33F9C85236FA193007E3A3D /* Assets.xcassets */; };
 		D33F9C89236FA193007E3A3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33F9C88236FA193007E3A3D /* Preview Assets.xcassets */; };
 		D33F9C8C236FA193007E3A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D33F9C8A236FA193007E3A3D /* LaunchScreen.storyboard */; };
 		D33F9C97236FA193007E3A3D /* SpeakerDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9C96236FA193007E3A3D /* SpeakerDatabaseTests.swift */; };
+		D33F9CA2236FA1B3007E3A3D /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9CA1236FA1B3007E3A3D /* Speaker.swift */; };
+		D33F9CA6236FCB15007E3A3D /* SpeakerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9CA5236FCB15007E3A3D /* SpeakerRow.swift */; };
+		D33F9CA823705000007E3A3D /* SpeakerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9CA723705000007E3A3D /* SpeakerList.swift */; };
+		D33F9CAA237052C7007E3A3D /* SpeakerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9CA9237052C7007E3A3D /* SpeakerDetail.swift */; };
+		D33F9CAC23709200007E3A3D /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9CAB23709200007E3A3D /* Filter.swift */; };
+		D3BBFC5123884A6C00DF7CF2 /* FilterSel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BBFC5023884A6C00DF7CF2 /* FilterSel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +35,6 @@
 		D33F9C7C236FA191007E3A3D /* SpeakerDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeakerDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33F9C7F236FA191007E3A3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D33F9C81236FA191007E3A3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D33F9C83236FA191007E3A3D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D33F9C85236FA193007E3A3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D33F9C88236FA193007E3A3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D33F9C8B236FA193007E3A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +42,12 @@
 		D33F9C92236FA193007E3A3D /* SpeakerDatabaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeakerDatabaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33F9C96236FA193007E3A3D /* SpeakerDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDatabaseTests.swift; sourceTree = "<group>"; };
 		D33F9C98236FA193007E3A3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D33F9CA1236FA1B3007E3A3D /* Speaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
+		D33F9CA5236FCB15007E3A3D /* SpeakerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerRow.swift; sourceTree = "<group>"; };
+		D33F9CA723705000007E3A3D /* SpeakerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerList.swift; sourceTree = "<group>"; };
+		D33F9CA9237052C7007E3A3D /* SpeakerDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetail.swift; sourceTree = "<group>"; };
+		D33F9CAB23709200007E3A3D /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		D3BBFC5023884A6C00DF7CF2 /* FilterSel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +91,12 @@
 			children = (
 				D33F9C7F236FA191007E3A3D /* AppDelegate.swift */,
 				D33F9C81236FA191007E3A3D /* SceneDelegate.swift */,
-				D33F9C83236FA191007E3A3D /* ContentView.swift */,
+				D33F9CA1236FA1B3007E3A3D /* Speaker.swift */,
+				D33F9CA5236FCB15007E3A3D /* SpeakerRow.swift */,
+				D33F9CA723705000007E3A3D /* SpeakerList.swift */,
+				D33F9CA9237052C7007E3A3D /* SpeakerDetail.swift */,
+				D33F9CAB23709200007E3A3D /* Filter.swift */,
+				D3BBFC5023884A6C00DF7CF2 /* FilterSel.swift */,
 				D33F9C85236FA193007E3A3D /* Assets.xcassets */,
 				D33F9C8A236FA193007E3A3D /* LaunchScreen.storyboard */,
 				D33F9C8D236FA193007E3A3D /* Info.plist */,
@@ -208,9 +223,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D33F9CAA237052C7007E3A3D /* SpeakerDetail.swift in Sources */,
 				D33F9C80236FA191007E3A3D /* AppDelegate.swift in Sources */,
 				D33F9C82236FA191007E3A3D /* SceneDelegate.swift in Sources */,
-				D33F9C84236FA191007E3A3D /* ContentView.swift in Sources */,
+				D33F9CA823705000007E3A3D /* SpeakerList.swift in Sources */,
+				D3BBFC5123884A6C00DF7CF2 /* FilterSel.swift in Sources */,
+				D33F9CAC23709200007E3A3D /* Filter.swift in Sources */,
+				D33F9CA2236FA1B3007E3A3D /* Speaker.swift in Sources */,
+				D33F9CA6236FCB15007E3A3D /* SpeakerRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,7 +22,7 @@ struct AgeKey {
     static let g4_6 = "4-6th"
     static let g7_8 = "7-8th"
     static let g9_10 = "9-10th"
-    static let g11_12 = "11-12th"
+    static let g11_12 = "11-12thdgh"
     static let ages = [gk_3, g4_6, g7_8, g9_10, g11_12]
 }
 

@@ -79,6 +79,9 @@ struct Filter: View {
                     path.addLine(to: CGPoint(x: 0, y: geometry.size.height))
                 }
                 .fill(Color.gray)*/
+                
+                
+                
             }
         }
         .edgesIgnoringSafeArea(.all)

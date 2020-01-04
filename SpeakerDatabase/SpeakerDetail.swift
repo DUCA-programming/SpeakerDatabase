@@ -17,10 +17,14 @@ struct SpeakerDetail: View {
                 Text(speaker.name)
                     .font(.title)
                     .bold()
+                Text(" ")
+                Text("Email")
                 Text(speaker.email)
-                    .font(.system(size: 22))
-                Text("Grade Range: " + speaker.ageRange)
-                    .font(.system(size: 22))
+                    .font(.system(size: 23))
+                Text(" ")
+                Text("Grade")
+                Text(speaker.ageRange)
+                    .font(.system(size: 23))
                 
                 Spacer()
             }

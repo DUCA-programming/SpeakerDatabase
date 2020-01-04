@@ -18,11 +18,11 @@ struct Speaker: Identifiable {
 }
 
 struct AgeKey {
-    static let gk_3 = "K-3"
-    static let g4_6 = "4-6"
-    static let g7_8 = "7-8"
-    static let g9_10 = "9-10"
-    static let g11_12 = "11-12"
+    static let gk_3 = "K-3rd"
+    static let g4_6 = "4-6th"
+    static let g7_8 = "7-8th"
+    static let g9_10 = "9-10th"
+    static let g11_12 = "11-12th"
     static let ages = [gk_3, g4_6, g7_8, g9_10, g11_12]
 }
 

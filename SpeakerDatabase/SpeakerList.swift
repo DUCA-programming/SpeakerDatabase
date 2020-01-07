@@ -42,8 +42,8 @@ struct SpeakerList: View {
                 Filter(dismiss: $showFilter, ageRange: filterS.sel["Age"]!, comm: filterS.sel["Comm"]!)
                     .environmentObject(filterS)
                     .transition(.move(edge: .trailing))
-                    .frame(width: 300)
-                    .shadow(radius: 10)
+                    //.frame(width: 300)
+                    //.shadow(radius: 10)
             }
         }
     }

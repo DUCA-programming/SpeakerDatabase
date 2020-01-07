@@ -20,14 +20,18 @@ struct Filter: View {
         return GeometryReader { geometry in
             ZStack {
                 VStack {
-                    HStack {
-                        Button("Done") {
-                            self.filterS.sel["Age"] = self.ageRange
-                            self.filterS.sel["Comm"] = self.comm
-                            self.dismiss.toggle()
+                    ZStack {
+                        HStack {
+                            Button("Done") {
+                                self.filterS.sel["Age"] = self.ageRange
+                                self.filterS.sel["Comm"] = self.comm
+                                self.dismiss.toggle()
+                            }
+                            .padding(.leading, 20.0)
+                            Spacer()
                         }
-                        .padding(.leading, 20.0)
-                        Spacer()
+                        Text("Filter")
+                            .bold()
                     }
                     .padding(.top, 80.0)
                     

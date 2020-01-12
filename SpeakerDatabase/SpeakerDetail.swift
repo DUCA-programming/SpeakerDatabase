@@ -12,19 +12,35 @@ struct SpeakerDetail: View {
     var speaker: Speaker
     
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
+    ZStack{
+        HStack{
+            VStack{
+                VStack{
                 Text(speaker.name)
                     .font(.title)
                     .bold()
-                Text(" ")
+                }
+                .padding(.top)
+                VStack{
+                Divider()
                 Text("Email")
                 Text(speaker.email)
                     .font(.system(size: 23))
-                Text(" ")
+                }
+                VStack{
+                Divider()
                 Text("Grade")
                 Text(speaker.ageRange)
                     .font(.system(size: 23))
+                }
+                VStack{
+                Divider()
+                Text("communication")
+                Text(speaker.comm)
+                    .font(.system(size: 23))
+                }
+
+                
                 
                 Spacer()
             }
@@ -40,4 +56,5 @@ struct SpeakerDetail_Previews: PreviewProvider {
     static var previews: some View {
         SpeakerDetail(speaker: Database.speakers[0])
     }
+}
 }

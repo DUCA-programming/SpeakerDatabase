@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Keeps the selections in the filter tab
 class FilterSel: ObservableObject {
     @Published var sel: [String: Int] = ["Age": 0, "Comm": 0]
 }

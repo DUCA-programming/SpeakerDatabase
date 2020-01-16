@@ -13,29 +13,31 @@ struct Filter: View {
     @Binding var dismiss: Bool
     @State var ageRange: Int
     @State var comm: Int
+    @State var topic: Int
     
     var body: some View {
         //let stroke = 4
-        
-        return GeometryReader { geometry in
+        NavigationView {
             ZStack {
                 VStack {
-                    ZStack {
-                        HStack {
-                            Button("Done") {
-                                self.filterS.sel["Age"] = self.ageRange
-                                self.filterS.sel["Comm"] = self.comm
-                                self.dismiss.toggle()
-                            }
-                            .padding(.leading, 20.0)
-                            Spacer()
-                        }
-                        Text("Filter")
-                            .bold()
-                    }
-                    .padding(.top, 80.0)
+                    /*ZStack {
+                     HStack {
+                     Button("Done") {
+                     self.filterS.sel["Age"] = self.ageRange
+                     self.filterS.sel["Comm"] = self.comm
+                     self.filterS.sel["Topic"] = self.topic
+                     self.dismiss.toggle()
+                     }
+                     .padding(.leading, 20.0)
+                     Spacer()
+                     }
+                     /*Text("Filter")
+                     .bold()*/
+                     }
+                     .padding(.top, 80.0)
+                     */
                     
-                    List {
+                    Form {
                         //Grade Range
                         Section() {
                             VStack {
@@ -71,24 +73,56 @@ struct Filter: View {
                                 .pickerStyle(SegmentedPickerStyle())
                             }
                         }
+                        
+                        //Topics
+                        Section() {
+                            //VStack {
+                            /*HStack {
+                             Text("Topics")
+                             .bold()
+                             Spacer()
+                             }*/
+                            
+                            /*List(TopicsKey.topics, id: \.self) { t in
+                             //CheckView(checked: self.$topics[t]!, title: t)
+                             Spacer()
+                             }*/
+                            Picker(selection: self.$topic, label: (
+                                Text("Topic").bold()
+                            )) {
+                                ForEach(0..<TopicsKey.topics.count) { index in
+                                    Text(TopicsKey.topics[index])
+                                        .tag(index)
+                                }
+                            }
+                            //.pickerStyle(DefaultPickerStyle)
+                            //}
+                        }
                     }
                     .listStyle(GroupedListStyle())
                 }
-                .background(Color.white)
+                //.background(Color.white)
                 
                 /*Path { path in
-                    path.move(to: CGPoint(x: 0, y: 0))
-                    path.addLine(to: CGPoint(x: stroke, y: 0))
-                    path.addLine(to: CGPoint(x: CGFloat(stroke), y: geometry.size.height))
-                    path.addLine(to: CGPoint(x: 0, y: geometry.size.height))
-                }
-                .fill(Color.gray)*/
+                 path.move(to: CGPoint(x: 0, y: 0))
+                 path.addLine(to: CGPoint(x: stroke, y: 0))
+                 path.addLine(to: CGPoint(x: CGFloat(stroke), y: geometry.size.height))
+                 path.addLine(to: CGPoint(x: 0, y: geometry.size.height))
+                 }
+                 .fill(Color.gray)*/
                 
                 
                 
             }
+            .navigationBarTitle("Filter")
+            .navigationBarItems(leading:
+                Button("Done") {
+                    self.filterS.sel["Age"] = self.ageRange
+                    self.filterS.sel["Comm"] = self.comm
+                    self.filterS.sel["Topic"] = self.topic
+                    self.dismiss.toggle()
+            })
         }
-        .edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -96,10 +130,11 @@ struct Filter_Previews: PreviewProvider {
     @State static var f = false
     @State static var i1 = 0
     @State static var i2 = 0
+    @State static var t = 0
     static let filterS = FilterSel()
     
     static var previews: some View {
-        Filter(dismiss: $f, ageRange: filterS.sel["Age"]!, comm: filterS.sel["Comm"]!).environmentObject(filterS)
+        Filter(dismiss: $f, ageRange: filterS.sel["Age"]!, comm: filterS.sel["Comm"]!, topic: filterS.sel["Topic"]!).environmentObject(filterS)
     }
 }
 

@@ -11,6 +11,7 @@ import SwiftUI
 
 struct SpeakerList: View {
     @EnvironmentObject var filterS: FilterSel
+    //@State var filterData: [Speaker] = []
     @State var showFilter = false
     
     var animation: Animation {
@@ -35,11 +36,12 @@ struct SpeakerList: View {
                     }
                 )
                 .disabled(showFilter)
+                
             }
             //.blur(radius: showFilter ? 2 : 0)
             
             if showFilter {
-                Filter(dismiss: $showFilter, ageRange: filterS.sel["Age"]!, comm: filterS.sel["Comm"]!)
+                Filter(dismiss: $showFilter, ageRange: filterS.sel["Age"]!, comm: filterS.sel["Comm"]!, topic: filterS.sel["Topic"]!)
                     .environmentObject(filterS)
                     .transition(.move(edge: .trailing))
                     //.frame(width: 300)

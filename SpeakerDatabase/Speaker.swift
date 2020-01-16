@@ -30,6 +30,7 @@ struct TopicsKey {
     static let math = "Math"
     static let science = "Science"
     static let english = "English"
+    static let topics = [math, science, english]
 }
 
 struct CommKey {

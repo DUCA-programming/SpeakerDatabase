@@ -18,6 +18,7 @@
 		D33F9CA823705000007E3A3D /* SpeakerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9CA723705000007E3A3D /* SpeakerList.swift */; };
 		D33F9CAA237052C7007E3A3D /* SpeakerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9CA9237052C7007E3A3D /* SpeakerDetail.swift */; };
 		D33F9CAC23709200007E3A3D /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9CAB23709200007E3A3D /* Filter.swift */; };
+		D37C650823CF42BA00B44D78 /* CheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C650723CF42BA00B44D78 /* CheckView.swift */; };
 		D3BBFC5123884A6C00DF7CF2 /* FilterSel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BBFC5023884A6C00DF7CF2 /* FilterSel.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		D33F9CA723705000007E3A3D /* SpeakerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerList.swift; sourceTree = "<group>"; };
 		D33F9CA9237052C7007E3A3D /* SpeakerDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetail.swift; sourceTree = "<group>"; };
 		D33F9CAB23709200007E3A3D /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		D37C650723CF42BA00B44D78 /* CheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckView.swift; sourceTree = "<group>"; };
 		D3BBFC5023884A6C00DF7CF2 /* FilterSel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 				D33F9CA723705000007E3A3D /* SpeakerList.swift */,
 				D33F9CA9237052C7007E3A3D /* SpeakerDetail.swift */,
 				D33F9CAB23709200007E3A3D /* Filter.swift */,
+				D37C650723CF42BA00B44D78 /* CheckView.swift */,
 				D3BBFC5023884A6C00DF7CF2 /* FilterSel.swift */,
 				D33F9C85236FA193007E3A3D /* Assets.xcassets */,
 				D33F9C8A236FA193007E3A3D /* LaunchScreen.storyboard */,
@@ -228,6 +231,7 @@
 				D33F9C82236FA191007E3A3D /* SceneDelegate.swift in Sources */,
 				D33F9CA823705000007E3A3D /* SpeakerList.swift in Sources */,
 				D3BBFC5123884A6C00DF7CF2 /* FilterSel.swift in Sources */,
+				D37C650823CF42BA00B44D78 /* CheckView.swift in Sources */,
 				D33F9CAC23709200007E3A3D /* Filter.swift in Sources */,
 				D33F9CA2236FA1B3007E3A3D /* Speaker.swift in Sources */,
 				D33F9CA6236FCB15007E3A3D /* SpeakerRow.swift in Sources */,

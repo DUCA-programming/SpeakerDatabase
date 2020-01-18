@@ -16,7 +16,8 @@ class FilterSel: ObservableObject {
     //Topic selections
     static var tSel_empty: [String: Bool] = [TopicsKey.english: false,
                                                  TopicsKey.math: false,
-                                                 TopicsKey.science: false]
+                                                 TopicsKey.science: false,
+                                                TopicsKey.history: false]
     
     @Published var tSel: [String: Bool] = [TopicsKey.english: false,
                                            TopicsKey.math: false,

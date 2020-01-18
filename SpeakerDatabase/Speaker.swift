@@ -30,7 +30,8 @@ struct TopicsKey {
     static let math = "Math"
     static let science = "Science"
     static let english = "English"
-    static let topics = [math, science, english]
+    static let history = "History"
+    static let topics = [math, science, english, history]
 }
 
 struct CommKey {
@@ -69,7 +70,7 @@ struct Database {
             name: "James Taylor",
             email: "jataylor99@gmail.com",
             ageRange: AgeKey.g7_8,
-            topic: TopicsKey.math,
+            topic: TopicsKey.history,
             comm: CommKey.person),
         Speaker(
             id: 4,

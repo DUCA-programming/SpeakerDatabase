@@ -39,6 +39,13 @@ struct SpeakerDetail: View {
                 Text(speaker.comm)
                     .font(.system(size: 23))
                 }
+                VStack{
+                Divider()
+                Text("Topic")
+                Text(speaker.topic)
+                    .font(.system(size: 23))
+                    
+                }
 
                 
                 

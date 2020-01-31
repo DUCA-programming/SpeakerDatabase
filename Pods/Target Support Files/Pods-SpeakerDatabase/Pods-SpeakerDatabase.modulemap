@@ -1,0 +1,6 @@
+framework module Pods_SpeakerDatabase {
+  umbrella header "Pods-SpeakerDatabase-umbrella.h"
+
+  export *
+  module * { export * }
+}

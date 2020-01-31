@@ -21,7 +21,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let filterS = FilterSel()
-        let contentView = SpeakerList().environmentObject(filterS)
+        let speakers = Speakers()
+        let contentView = SpeakerList()
+                            .environmentObject(filterS)
+                            .environmentObject(speakers)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
@@ -50,8 +53,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
+        //Data.setup()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>695695805389-on8ep4l20i4hl07sso53kd2m8lbsrbsg.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.695695805389-on8ep4l20i4hl07sso53kd2m8lbsrbsg</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAJbKSdBHtMbY3AD8S_7X_VNoZZr4RDYPU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>695695805389</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.TJAProgramming.SpeakerDatabase</string>
+	<key>PROJECT_ID</key>
+	<string>speakerdatabase</string>
+	<key>STORAGE_BUCKET</key>
+	<string>speakerdatabase.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:695695805389:ios:f96af7ea3b60a828f1d284</string>
+	<key>DATABASE_URL</key>
+	<string>https://speakerdatabase.firebaseio.com</string>
+</dict>
+</plist>

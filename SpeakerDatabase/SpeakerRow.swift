@@ -28,7 +28,7 @@ struct SpeakerRow: View {
 
 struct SpeakerRow_Previews: PreviewProvider {
     static var previews: some View {
-        SpeakerRow(speaker: Database.speakers[0])
+        SpeakerRow(speaker: TestSpeaker.speaker)
             .previewLayout(.fixed(width: 300, height: 70))
     }
 }

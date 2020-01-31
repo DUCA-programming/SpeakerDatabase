@@ -54,7 +54,7 @@ struct SpeakerDetail: View {
 
 struct SpeakerDetail_Previews: PreviewProvider {
     static var previews: some View {
-        SpeakerDetail(speaker: Database.speakers[0])
+        SpeakerDetail(speaker: TestSpeaker.speaker)
     }
 }
 }

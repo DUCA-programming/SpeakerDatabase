@@ -7,14 +7,21 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 struct Speaker: Identifiable {
+    //Searchable
     var id: Int
     let name: String
-    let email: String
     let ageRange: String
     let topic: String
     let comm: String
+    
+    //Not Searchable
+    let bio: String
+    let phone: String
+    let website: String
+    let email: String
 }
 
 struct AgeKey {
@@ -27,22 +34,65 @@ struct AgeKey {
 }
 
 struct TopicsKey {
+    static let military = "Military"
+    static let running = "Running"
+    static let commSci = "Computer Science"
     static let math = "Math"
-    static let science = "Science"
-    static let english = "English"
-    static let topics = [math, science, english]
+    static let topics = [military, running, commSci, math]
 }
 
 struct CommKey {
     static let person = "In Person"
-    static let video = "Video"
+    static let video = "Video Chat"
     static let both = "Both"
     static let methods = [person, video, both]
 }
 
-//Temporary code
-struct Database {
-    static let speakers: [Speaker] = [
+class Speakers: ObservableObject {
+    //Properties
+    @Published var speakers: [Speaker] = []
+    @Published var filteredSpeakers: [Speaker] = []
+    
+    let ref = Database.database().reference()
+    
+    //Sets up database
+    init() {
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            var speaks = [Speaker]()
+            
+            for a in snapshot.children {
+                let snap = a as! DataSnapshot
+                if let snapValue = snap.value as? [String:Any] {
+                    let id = snapValue["SpeakID"] as! Int
+                    let name = snapValue["SpeakName"] as! String
+                    let bio = snapValue["SpeakBio"] as! String
+                    let comm = snapValue["SpeakComStyle"] as! String
+                    let email = snapValue["SpeakEmail"] as! String
+                    let ageRange = snapValue["SpeakAgeRec"] as! String
+                    let phone = snapValue["SpeakPhone"] as! String
+                    let topic = snapValue["SpeakSubject"] as! String
+                    let website = snapValue["SpeakWebsite"] as! String
+                    let speaker = Speaker(id: id, name: name, ageRange: ageRange, topic: topic, comm: comm, bio: bio, phone: phone, website: website, email: email)
+                    speaks.append(speaker)
+                    print(speaker)
+                }
+            }
+            self.speakers = speaks
+            self.filteredSpeakers = speaks
+        })
+    }
+    
+    func filter(ageRange: String, comm: String, topic: String) {
+        var list: [Speaker] = []
+        for a in speakers {
+            if a.ageRange == ageRange && a.comm == comm && a.topic == topic {
+                list.append(a)
+            }
+        }
+        filteredSpeakers = list
+    }
+    
+    /*static let speakers: [Speaker] = [
         Speaker(
             id: 0,
             name: "AJ Taylor",
@@ -92,4 +142,18 @@ struct Database {
             ageRange: AgeKey.g4_6,
             topic: TopicsKey.science,
             comm: CommKey.both)]
+    */
+}
+
+struct TestSpeaker {
+    static let speaker = Speaker(
+                            id: 0,
+                            name: "AJ Taylor",
+                            ageRange: AgeKey.g11_12,
+                            topic: TopicsKey.math,
+                            comm: CommKey.person,
+                            bio: "Programmer",
+                            phone: "402-123-4567",
+                            website: "google.com",
+                            email: "ajamest02@gmail.com")
 }

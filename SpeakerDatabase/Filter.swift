@@ -10,6 +10,7 @@ import SwiftUI
 
 struct Filter: View {
     @EnvironmentObject var filterS: FilterSel
+    @EnvironmentObject var speakers: Speakers
     @Binding var dismiss: Bool
     @State var ageRange: Int
     @State var comm: Int
@@ -117,9 +118,15 @@ struct Filter: View {
             .navigationBarTitle("Filter")
             .navigationBarItems(leading:
                 Button("Done") {
+                    //Sets filter selections
                     self.filterS.sel["Age"] = self.ageRange
                     self.filterS.sel["Comm"] = self.comm
                     self.filterS.sel["Topic"] = self.topic
+                    
+                    //Refines filter search
+                    self.speakers.filter(ageRange: AgeKey.ages[self.ageRange], comm: CommKey.methods[self.comm], topic: TopicsKey.topics[self.topic])
+                    
+                    //Dismisses filter
                     self.dismiss.toggle()
             })
         }

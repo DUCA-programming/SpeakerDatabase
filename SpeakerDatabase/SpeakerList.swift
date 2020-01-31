@@ -11,6 +11,7 @@ import SwiftUI
 
 struct SpeakerList: View {
     @EnvironmentObject var filterS: FilterSel
+    @EnvironmentObject var speakers: Speakers
     //@State var filterData: [Speaker] = []
     @State var showFilter = false
     
@@ -22,7 +23,7 @@ struct SpeakerList: View {
     var body: some View {
         return ZStack(alignment: .trailing) {
             NavigationView {
-                List(Database.speakers) { speaker in
+                List(speakers.filteredSpeakers) { speaker in
                     NavigationLink(destination: SpeakerDetail(speaker: speaker)) {
                         SpeakerRow(speaker: speaker)
                     }
@@ -44,6 +45,7 @@ struct SpeakerList: View {
                 Filter(dismiss: $showFilter, ageRange: filterS.sel["Age"]!, comm: filterS.sel["Comm"]!, topic: filterS.sel["Topic"]!)
                     .environmentObject(filterS)
                     .transition(.move(edge: .trailing))
+                    .environmentObject(speakers)
                     //.frame(width: 300)
                     //.shadow(radius: 10)
             }

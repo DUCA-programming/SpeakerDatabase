@@ -30,15 +30,17 @@ struct AgeKey {
     static let g7_8 = "7-8th"
     static let g9_10 = "9-10th"
     static let g11_12 = "11-12th"
-    static let ages = [gk_3, g4_6, g7_8, g9_10, g11_12]
+    static let gk_12 = "K-12th"
+    static let ages = [gk_3, g4_6, g7_8, g9_10, g11_12, gk_12]
 }
 
 struct TopicsKey {
+    static let any = "Any"
     static let military = "Military"
     static let running = "Running"
     static let commSci = "Computer Science"
     static let math = "Math"
-    static let topics = [military, running, commSci, math]
+    static let topics = [any, military, running, commSci, math]
 }
 
 struct CommKey {
@@ -85,7 +87,7 @@ class Speakers: ObservableObject {
     func filter(ageRange: String, comm: String, topic: String) {
         var list: [Speaker] = []
         for a in speakers {
-            if a.ageRange == ageRange && a.comm == comm && a.topic == topic {
+            if (ageRange == AgeKey.gk_12 || a.ageRange == ageRange) && (comm == CommKey.both || a.comm == comm) && (topic == TopicsKey.any || a.topic == topic) {
                 list.append(a)
             }
         }

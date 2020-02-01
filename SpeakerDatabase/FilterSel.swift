@@ -11,5 +11,5 @@ import Foundation
 //Keeps the selections in the filter tab
 class FilterSel: ObservableObject {
     //Selections
-    @Published var sel: [String: Int] = ["Age": 0, "Comm": 0, "Topic": 0]
+    @Published var sel: [String: Int] = ["Age": AgeKey.ages.count-1, "Comm": CommKey.methods.count-1, "Topic": 0]
 }

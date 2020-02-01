@@ -55,10 +55,13 @@ struct SpeakerList: View {
 
 struct SpeakerList_Previews: PreviewProvider {
     static let filterS = FilterSel()
+    static let speakers = Speakers()
     
     static var previews: some View {
         VStack {
-            SpeakerList().environmentObject(filterS)
+            SpeakerList()
+                .environmentObject(filterS)
+                .environmentObject(speakers)
             //Spacer()
         }
     }

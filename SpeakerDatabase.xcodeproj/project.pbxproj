@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0641295905845516D18C3E41 /* Pods_SpeakerDatabaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C85F97107A84971BB30FF9C /* Pods_SpeakerDatabaseTests.framework */; };
 		AE2C11B3CDB57F1B23E0E8B5 /* Pods_SpeakerDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B048947D7B4BC509729E50 /* Pods_SpeakerDatabase.framework */; };
+		D330926A23E4ECD70084A38D /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330926923E4ECD70084A38D /* CircleImage.swift */; };
+		D330926C23E4F7B30084A38D /* SpeakerInfoBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330926B23E4F7B30084A38D /* SpeakerInfoBox.swift */; };
 		D33F9C80236FA191007E3A3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9C7F236FA191007E3A3D /* AppDelegate.swift */; };
 		D33F9C82236FA191007E3A3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9C81236FA191007E3A3D /* SceneDelegate.swift */; };
 		D33F9C86236FA193007E3A3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33F9C85236FA193007E3A3D /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		1AC8042377ED19BA1EDEE650 /* Pods-SpeakerDatabase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeakerDatabase.release.xcconfig"; path = "Target Support Files/Pods-SpeakerDatabase/Pods-SpeakerDatabase.release.xcconfig"; sourceTree = "<group>"; };
 		496102BA06A26D3FD2A6D5D3 /* Pods-SpeakerDatabaseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeakerDatabaseTests.debug.xcconfig"; path = "Target Support Files/Pods-SpeakerDatabaseTests/Pods-SpeakerDatabaseTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A4F2C2C1F9C38C4B4BD04093 /* Pods-SpeakerDatabaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeakerDatabaseTests.release.xcconfig"; path = "Target Support Files/Pods-SpeakerDatabaseTests/Pods-SpeakerDatabaseTests.release.xcconfig"; sourceTree = "<group>"; };
+		D330926923E4ECD70084A38D /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		D330926B23E4F7B30084A38D /* SpeakerInfoBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerInfoBox.swift; sourceTree = "<group>"; };
 		D33F9C7C236FA191007E3A3D /* SpeakerDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeakerDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33F9C7F236FA191007E3A3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D33F9C81236FA191007E3A3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,7 +104,6 @@
 				496102BA06A26D3FD2A6D5D3 /* Pods-SpeakerDatabaseTests.debug.xcconfig */,
 				A4F2C2C1F9C38C4B4BD04093 /* Pods-SpeakerDatabaseTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -133,6 +136,8 @@
 				D33F9CA5236FCB15007E3A3D /* SpeakerRow.swift */,
 				D33F9CA723705000007E3A3D /* SpeakerList.swift */,
 				D33F9CA9237052C7007E3A3D /* SpeakerDetail.swift */,
+				D330926B23E4F7B30084A38D /* SpeakerInfoBox.swift */,
+				D330926923E4ECD70084A38D /* CircleImage.swift */,
 				D33F9CAB23709200007E3A3D /* Filter.swift */,
 				D37C650723CF42BA00B44D78 /* CheckView.swift */,
 				D3BBFC5023884A6C00DF7CF2 /* FilterSel.swift */,
@@ -341,6 +346,8 @@
 				D33F9CAC23709200007E3A3D /* Filter.swift in Sources */,
 				D33F9CA2236FA1B3007E3A3D /* Speaker.swift in Sources */,
 				D33F9CA6236FCB15007E3A3D /* SpeakerRow.swift in Sources */,
+				D330926A23E4ECD70084A38D /* CircleImage.swift in Sources */,
+				D330926C23E4F7B30084A38D /* SpeakerInfoBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,52 +12,34 @@ struct SpeakerDetail: View {
     var speaker: Speaker
     
     var body: some View {
-    ZStack{
         HStack{
-            VStack{
+            ScrollView {
                 VStack{
-                Text(speaker.name)
-                    .font(.title)
-                    .bold()
-                }
-                .padding(.top)
-                VStack{
-                Divider()
-                Text("Email")
-                Text(speaker.email)
-                    .font(.system(size: 23))
-                }
-                VStack{
-                Divider()
-                Text("Grade")
-                Text(speaker.ageRange)
-                    .font(.system(size: 23))
-                }
-                VStack{
-                Divider()
-                Text("communication")
-                Text(speaker.comm)
-                    .font(.system(size: 23))
-                }
-                VStack{
-                Divider()
-                Text("Topic")
-                Text(speaker.topic)
-                    .font(.system(size: 23))
+                    CircleImage(image: "graybox")
+                    Text(speaker.name)
+                        .font(.title)
+                        .bold()
+                        .padding(.top)
                     
+                    //Info
+                    SpeakerInfoBox(title: "Phone", text: speaker.phone)
+                    SpeakerInfoBox(title: "Email", text: speaker.email)
+                    SpeakerInfoBox(title: "Website", text: speaker.website)
+                    SpeakerInfoBox(title: "Grades", text: speaker.ageRange)
+                    SpeakerInfoBox(title: "Communication", text: speaker.comm)
+                    SpeakerInfoBox(title: "Topic", text: speaker.topic)
+                    SpeakerInfoBox(title: "Bio", text: speaker.bio)
+                    
+                    
+                    Spacer()
                 }
-
-                
-                
-                Spacer()
+                    .padding(.top)
             }
-            .padding(.top)
-            
-            Spacer()
         }
-            .padding()
+        .padding(.horizontal)
+        .navigationBarTitle("", displayMode: .inline)
+        
     }
-}
 
 struct SpeakerDetail_Previews: PreviewProvider {
     static var previews: some View {

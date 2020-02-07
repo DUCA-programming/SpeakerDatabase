@@ -16,7 +16,7 @@ struct SpeakerRow: View {
             VStack(alignment: .leading) {
                 Text(speaker.name)
                     .font(.title)
-                Text(speaker.email)
+                Text(speaker.topic)
                     .foregroundColor(Color.gray)
             }
                 .padding()

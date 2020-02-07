@@ -11,6 +11,9 @@
 		AE2C11B3CDB57F1B23E0E8B5 /* Pods_SpeakerDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B048947D7B4BC509729E50 /* Pods_SpeakerDatabase.framework */; };
 		D330926A23E4ECD70084A38D /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330926923E4ECD70084A38D /* CircleImage.swift */; };
 		D330926C23E4F7B30084A38D /* SpeakerInfoBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330926B23E4F7B30084A38D /* SpeakerInfoBox.swift */; };
+		D330927223E9C8A00084A38D /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330927123E9C8A00084A38D /* CategoryList.swift */; };
+		D330927423E9C8AF0084A38D /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330927323E9C8AF0084A38D /* CategoryRow.swift */; };
+		D3314BD723EC85E2003BB5A9 /* Testor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3314BD623EC85E2003BB5A9 /* Testor.swift */; };
 		D33F9C80236FA191007E3A3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9C7F236FA191007E3A3D /* AppDelegate.swift */; };
 		D33F9C82236FA191007E3A3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9C81236FA191007E3A3D /* SceneDelegate.swift */; };
 		D33F9C86236FA193007E3A3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33F9C85236FA193007E3A3D /* Assets.xcassets */; };
@@ -46,7 +49,10 @@
 		A4F2C2C1F9C38C4B4BD04093 /* Pods-SpeakerDatabaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeakerDatabaseTests.release.xcconfig"; path = "Target Support Files/Pods-SpeakerDatabaseTests/Pods-SpeakerDatabaseTests.release.xcconfig"; sourceTree = "<group>"; };
 		D330926923E4ECD70084A38D /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		D330926B23E4F7B30084A38D /* SpeakerInfoBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerInfoBox.swift; sourceTree = "<group>"; };
-		D33F9C7C236FA191007E3A3D /* SpeakerDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeakerDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D330927123E9C8A00084A38D /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
+		D330927323E9C8AF0084A38D /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
+		D3314BD623EC85E2003BB5A9 /* Testor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testor.swift; sourceTree = "<group>"; };
+		D33F9C7C236FA191007E3A3D /* SpeakersBureau.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeakersBureau.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33F9C7F236FA191007E3A3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D33F9C81236FA191007E3A3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D33F9C85236FA193007E3A3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,7 +127,7 @@
 		D33F9C7D236FA191007E3A3D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D33F9C7C236FA191007E3A3D /* SpeakerDatabase.app */,
+				D33F9C7C236FA191007E3A3D /* SpeakersBureau.app */,
 				D33F9C92236FA193007E3A3D /* SpeakerDatabaseTests.xctest */,
 			);
 			name = Products;
@@ -137,8 +143,11 @@
 				D33F9CA723705000007E3A3D /* SpeakerList.swift */,
 				D33F9CA9237052C7007E3A3D /* SpeakerDetail.swift */,
 				D330926B23E4F7B30084A38D /* SpeakerInfoBox.swift */,
+				D330927123E9C8A00084A38D /* CategoryList.swift */,
+				D330927323E9C8AF0084A38D /* CategoryRow.swift */,
 				D330926923E4ECD70084A38D /* CircleImage.swift */,
 				D33F9CAB23709200007E3A3D /* Filter.swift */,
+				D3314BD623EC85E2003BB5A9 /* Testor.swift */,
 				D37C650723CF42BA00B44D78 /* CheckView.swift */,
 				D3BBFC5023884A6C00DF7CF2 /* FilterSel.swift */,
 				D33F9C85236FA193007E3A3D /* Assets.xcassets */,
@@ -186,7 +195,7 @@
 			);
 			name = SpeakerDatabase;
 			productName = SpeakerDatabase;
-			productReference = D33F9C7C236FA191007E3A3D /* SpeakerDatabase.app */;
+			productReference = D33F9C7C236FA191007E3A3D /* SpeakersBureau.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D33F9C91236FA193007E3A3D /* SpeakerDatabaseTests */ = {
@@ -343,11 +352,14 @@
 				D33F9CA823705000007E3A3D /* SpeakerList.swift in Sources */,
 				D3BBFC5123884A6C00DF7CF2 /* FilterSel.swift in Sources */,
 				D37C650823CF42BA00B44D78 /* CheckView.swift in Sources */,
+				D330927423E9C8AF0084A38D /* CategoryRow.swift in Sources */,
 				D33F9CAC23709200007E3A3D /* Filter.swift in Sources */,
 				D33F9CA2236FA1B3007E3A3D /* Speaker.swift in Sources */,
 				D33F9CA6236FCB15007E3A3D /* SpeakerRow.swift in Sources */,
 				D330926A23E4ECD70084A38D /* CircleImage.swift in Sources */,
 				D330926C23E4F7B30084A38D /* SpeakerInfoBox.swift in Sources */,
+				D3314BD723EC85E2003BB5A9 /* Testor.swift in Sources */,
+				D330927223E9C8A00084A38D /* CategoryList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,8 +521,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.TJAProgramming.SpeakerDatabase;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.TJAProgramming.SpeakersBureau;
+				PRODUCT_NAME = SpeakersBureau;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -530,8 +542,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.TJAProgramming.SpeakerDatabase;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.TJAProgramming.SpeakersBureau;
+				PRODUCT_NAME = SpeakersBureau;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseDatabase
 
+//MARK: Speaker
 struct Speaker: Identifiable {
     //Searchable
     var id: Int
@@ -24,6 +25,7 @@ struct Speaker: Identifiable {
     let email: String
 }
 
+//MARK: Keys
 struct AgeKey {
     static let gk_3 = "K-3rd"
     static let g4_6 = "4-6th"
@@ -41,6 +43,16 @@ struct TopicsKey {
     static let commSci = "Computer Science"
     static let math = "Math"
     static let topics = [any, military, running, commSci, math]
+    
+    static let organizedTopics: [String: [String]] = [
+        SubjectKeys.business: ["Marketing", "Business Management & Administration", "Hospitality & Tourism"],
+        SubjectKeys.health: ["Health Sciences"],
+        SubjectKeys.education: ["Government & Public Administration", "Law, Public Safety, Corrections, & Security", "Human Services", "Education & Training"],
+        SubjectKeys.agriculture: ["Agriculture, Food & Natural Resources"],
+        SubjectKeys.communication: ["Arts, A/V Technology, & Communications", "Information Technology"],
+        SubjectKeys.tech: ["Energy & Engineering", "Manufacturing", "Architecture & Construction", "Transportation, Distribution, & Logistics"],
+        SubjectKeys.motivation: ["Motivational Speakers"]
+    ]
 }
 
 struct CommKey {
@@ -50,6 +62,18 @@ struct CommKey {
     static let methods = [person, video, both]
 }
 
+struct SubjectKeys {
+    static let business = "Business, Marketing, & Management"
+    static let health = "Health Sciences"
+    static let education = "Human Sciences & Education"
+    static let agriculture = "Agriculture, Food, & Natural Resources"
+    static let communication = "Communication & Information Systems"
+    static let tech = "Skilled & Technical Sciences"
+    static let motivation = "Motivational Speakers"
+    static let subjects = [business, health, education, agriculture, communication, tech, motivation]
+}
+
+//MARK: Speakers
 class Speakers: ObservableObject {
     //Properties
     @Published var speakers: [Speaker] = []
@@ -76,7 +100,82 @@ class Speakers: ObservableObject {
                     let website = snapValue["SpeakWebsite"] as! String
                     let speaker = Speaker(id: id, name: name, ageRange: ageRange, topic: topic, comm: comm, bio: bio, phone: phone, website: website, email: email)
                     speaks.append(speaker)
-                    print(speaker)
+                    //print(speaker)
+                }
+            }
+            self.speakers = speaks
+            self.filteredSpeakers = speaks
+        })
+    }
+    
+    init(subject: String) {
+        let topicsList: [String] = TopicsKey.organizedTopics[subject]!
+        
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            var speaks = [Speaker]()
+            for a in snapshot.children {
+                var onTopic = false
+                let snap = a as! DataSnapshot
+                for t in topicsList {
+                    if snap.childSnapshot(forPath: "SpeakSubject").value as! String == t {
+                        onTopic = true
+                    }
+                }
+                
+                if onTopic {
+                    if let snapValue = snap.value as? [String:Any] {
+                        let id = snapValue["SpeakID"] as! Int
+                        let name = snapValue["SpeakName"] as! String
+                        let bio = snapValue["SpeakBio"] as! String
+                        let comm = snapValue["SpeakComStyle"] as! String
+                        let email = snapValue["SpeakEmail"] as! String
+                        let ageRange = snapValue["SpeakAgeRec"] as! String
+                        let phone = snapValue["SpeakPhone"] as! String
+                        let topic = snapValue["SpeakSubject"] as! String
+                        let website = snapValue["SpeakWebsite"] as! String
+                        let speaker = Speaker(id: id, name: name, ageRange: ageRange, topic: topic, comm: comm, bio: bio, phone: phone, website: website, email: email)
+                        speaks.append(speaker)
+                    }
+                }
+            }
+            self.speakers = speaks
+            self.filteredSpeakers = speaks
+        })
+        /*for topic in topicsList {
+            let test = ref.chi
+            print("Test:")
+            print(test)
+        }*/
+    }
+    
+    func search(subject: String) {
+        let topicsList: [String] = TopicsKey.organizedTopics[subject]!
+        
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            var speaks = [Speaker]()
+            for a in snapshot.children {
+                var onTopic = false
+                let snap = a as! DataSnapshot
+                for t in topicsList {
+                    if snap.childSnapshot(forPath: "SpeakSubject").value as! String == t {
+                        onTopic = true
+                    }
+                }
+                
+                if onTopic {
+                    if let snapValue = snap.value as? [String:Any] {
+                        let id = snapValue["SpeakID"] as! Int
+                        let name = snapValue["SpeakName"] as! String
+                        let bio = snapValue["SpeakBio"] as! String
+                        let comm = snapValue["SpeakComStyle"] as! String
+                        let email = snapValue["SpeakEmail"] as! String
+                        let ageRange = snapValue["SpeakAgeRec"] as! String
+                        let phone = snapValue["SpeakPhone"] as! String
+                        let topic = snapValue["SpeakSubject"] as! String
+                        let website = snapValue["SpeakWebsite"] as! String
+                        let speaker = Speaker(id: id, name: name, ageRange: ageRange, topic: topic, comm: comm, bio: bio, phone: phone, website: website, email: email)
+                        speaks.append(speaker)
+                    }
                 }
             }
             self.speakers = speaks
@@ -93,60 +192,23 @@ class Speakers: ObservableObject {
         }
         filteredSpeakers = list
     }
-    
-    /*static let speakers: [Speaker] = [
-        Speaker(
-            id: 0,
-            name: "AJ Taylor",
-            email: "ajamest02@gmail.com",
-            ageRange: AgeKey.g11_12,
-            topic: TopicsKey.math,
-            comm: CommKey.person),
-        Speaker(
-            id: 1,
-            name: "John Doe",
-            email: "john.doe@website.com",
-            ageRange: AgeKey.g7_8,
-            topic: TopicsKey.science,
-            comm: CommKey.video),
-        Speaker(
-            id: 2,
-            name: "Clark Donner",
-            email: "somecompany@gmail.com",
-            ageRange: AgeKey.g11_12,
-            topic: TopicsKey.math,
-            comm: CommKey.video),
-        Speaker(
-            id: 3,
-            name: "James Taylor",
-            email: "jataylor99@gmail.com",
-            ageRange: AgeKey.g7_8,
-            topic: TopicsKey.math,
-            comm: CommKey.person),
-        Speaker(
-            id: 4,
-            name: "Corey Mauck",
-            email: "anothercompany@gmail.com",
-            ageRange: AgeKey.g9_10,
-            topic: TopicsKey.english,
-            comm: CommKey.person),
-        Speaker(
-            id: 5,
-            name: "Carl Kyler",
-            email: "Carl.kyler@website.com",
-            ageRange: AgeKey.gk_3,
-            topic: TopicsKey.english,
-            comm: CommKey.both),
-        Speaker(
-            id: 6,
-            name: "Will Montgomery",
-            email: "william001@gmail.com",
-            ageRange: AgeKey.g4_6,
-            topic: TopicsKey.science,
-            comm: CommKey.both)]
-    */
 }
 
+//MARK: Category
+struct Subject: Identifiable {
+    var id = UUID()
+    var name: String
+    
+    static var subjects: [Subject] {
+        var list: [Subject] = []
+        for a in SubjectKeys.subjects {
+            list.append(Subject(name: a))
+        }
+        return list
+    }
+}
+
+//MARK: Temp code
 struct TestSpeaker {
     static let speaker = Speaker(
                             id: 0,

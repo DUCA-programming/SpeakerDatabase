@@ -13,11 +13,19 @@ struct CategoryRow: View {
     
     var body: some View {
         HStack {
-            Text(subject.name)
+            Image(subject.image)
+                //.aspectRatio(7/5, contentMode: .fill)
+                //.frame(width: 70)
+                .resizable()
+                .frame(width: 300, height: 300*5/7)
+           /* Text(subject.name)
                 .font(.title)
-            Spacer()
+ */
+            //Spacer()
         }
-            .padding()
+        .frame(width: 200, height: 200*5/7)
+            //.padding()
+        //Image(subject.image)
     }
 }
 
@@ -25,5 +33,6 @@ struct CategoryRow_Previews: PreviewProvider {
     static var previews: some View {
         CategoryRow(subject: Subject(name: "Marketing"))
             .previewLayout(.fixed(width: 300, height: 70))
+ 
     }
 }

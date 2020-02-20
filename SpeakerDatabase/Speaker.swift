@@ -220,13 +220,16 @@ class Speakers: ObservableObject {
 struct Subject: Identifiable {
     var id = UUID()
     var name: String
+    var image: String = "Health"
     
     static var subjects: [Subject] {
         var list: [Subject] = []
         for a in SubjectKeys.subjects {
             list.append(Subject(name: a))
         }
+ 
         return list
+ 
     }
 }
 

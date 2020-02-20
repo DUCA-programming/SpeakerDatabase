@@ -27,11 +27,11 @@ struct SpeakerList: View {
     var body: some View {
         return ZStack(alignment: .trailing) {
             List(speakers.filteredSpeakers) { speaker in
-                NavigationLink(destination: SpeakerDetail(speaker: speaker)) {
-                    SpeakerRow(speaker: speaker)
+                NavigationLink(destination: SpeakerDetail(speaker: speaker, subject: self.subject)) {
+                    SpeakerRow(speaker: speaker, subject: Subject(name: self.subject))
                 }
             }
-            .navigationBarTitle("Speakers")
+            .navigationBarTitle(subject)
             .navigationBarItems(trailing:
                 Button("Filter") {
                     withAnimation {

@@ -15,7 +15,12 @@ struct Speaker: Identifiable {
     var id: Int
     let name: String
     let ageRange: String
-    let topic: String
+    let topicBMM: String
+    let topicAFN: String
+    let topicCIS: String
+    let topicSTS: String
+    let topicHS: String
+    let topicHSE: String
     let comm: String
     
     //Not Searchable
@@ -63,12 +68,12 @@ struct CommKey {
 }
 
 struct SubjectKeys {
-    static let business = "Business, Marketing, & Management"
+    static let business = "Business, Marketing, and Management"
     static let health = "Health Sciences"
-    static let education = "Human Sciences & Education"
-    static let agriculture = "Agriculture, Food, & Natural Resources"
+    static let education = "Human Services & Education"
+    static let agriculture = "Agriculture, Food, and Natural Resources"
     static let communication = "Communication & Information Systems"
-    static let tech = "Skilled & Technical Sciences"
+    static let tech = "Skilled & Technical Services"
     static let motivation = "Motivational Speakers"
     static let subjects = [business, health, education, agriculture, communication, tech, motivation]
 }
@@ -96,9 +101,14 @@ class Speakers: ObservableObject {
                     let email = snapValue["SpeakEmail"] as! String
                     let ageRange = snapValue["SpeakAgeRec"] as! String
                     let phone = snapValue["SpeakPhone"] as! String
-                    let topic = snapValue["SpeakSubject"] as! String
-                    let website = snapValue["SpeakWebsite"] as! String
-                    let speaker = Speaker(id: id, name: name, ageRange: ageRange, topic: topic, comm: comm, bio: bio, phone: phone, website: website, email: email)
+                    let topicBMM = snapValue["SpeakBMM"] as! String
+                    let topicAFN = snapValue["SpeakAFN"] as! String
+                    let topicCIS = snapValue["SpeakCIS"] as! String
+                    let topicSTS = snapValue["SpeakSTS"] as! String
+                    let topicHS = snapValue["SpeakHS"] as! String
+                    let topicHSE = snapValue["SpeakHSE"] as! String
+                
+                    let speaker = Speaker(id: id, name: name, ageRange: ageRange, topicBMM: topicBMM, topicAFN: topicAFN, topicCIS: topicCIS, topicSTS: topicSTS, topicHS: topicHS, topicHSE: topicHSE, comm: comm, bio: bio, phone: phone, website: "N/A", email: email)
                     speaks.append(speaker)
                     //print(speaker)
                 }
@@ -109,15 +119,15 @@ class Speakers: ObservableObject {
     }
     
     init(subject: String) {
-        let topicsList: [String] = TopicsKey.organizedTopics[subject]!
+        //let topicsList: [String] = TopicsKey.organizedTopics[subject]!
         
         ref.observeSingleEvent(of: .value, with: { snapshot in
             var speaks = [Speaker]()
             for a in snapshot.children {
                 var onTopic = false
                 let snap = a as! DataSnapshot
-                for t in topicsList {
-                    if snap.childSnapshot(forPath: "SpeakSubject").value as! String == t {
+                if let topics = snap.childSnapshot(forPath: "SpeakSubject").value as? String {
+                    if topics.contains(subject) {
                         onTopic = true
                     }
                 }
@@ -131,9 +141,15 @@ class Speakers: ObservableObject {
                         let email = snapValue["SpeakEmail"] as! String
                         let ageRange = snapValue["SpeakAgeRec"] as! String
                         let phone = snapValue["SpeakPhone"] as! String
-                        let topic = snapValue["SpeakSubject"] as! String
-                        let website = snapValue["SpeakWebsite"] as! String
-                        let speaker = Speaker(id: id, name: name, ageRange: ageRange, topic: topic, comm: comm, bio: bio, phone: phone, website: website, email: email)
+                        //let phone = "Test"
+                        let topicBMM = snapValue["SpeakBMM"] as! String
+                        let topicAFN = snapValue["SpeakAFN"] as! String
+                        let topicCIS = snapValue["SpeakCIS"] as! String
+                        let topicSTS = snapValue["SpeakSTS"] as! String
+                        let topicHS = snapValue["SpeakHS"] as! String
+                        let topicHSE = snapValue["SpeakHSE"] as! String
+                        
+                        let speaker = Speaker(id: id, name: name, ageRange: ageRange, topicBMM: topicBMM, topicAFN: topicAFN, topicCIS: topicCIS, topicSTS: topicSTS, topicHS: topicHS, topicHSE: topicHSE, comm: comm, bio: bio, phone: phone, website: "N/A", email: email)
                         speaks.append(speaker)
                     }
                 }
@@ -171,9 +187,15 @@ class Speakers: ObservableObject {
                         let email = snapValue["SpeakEmail"] as! String
                         let ageRange = snapValue["SpeakAgeRec"] as! String
                         let phone = snapValue["SpeakPhone"] as! String
-                        let topic = snapValue["SpeakSubject"] as! String
-                        let website = snapValue["SpeakWebsite"] as! String
-                        let speaker = Speaker(id: id, name: name, ageRange: ageRange, topic: topic, comm: comm, bio: bio, phone: phone, website: website, email: email)
+                        //let website = snapValue["SpeakWebsite"] as! String
+                        let topicBMM = snapValue["SpeakBMM"] as! String
+                        let topicAFN = snapValue["SpeakAFN"] as! String
+                        let topicCIS = snapValue["SpeakCIS"] as! String
+                        let topicSTS = snapValue["SpeakSTS"] as! String
+                        let topicHS = snapValue["SpeakHS"] as! String
+                        let topicHSE = snapValue["SpeakHSE"] as! String
+                        
+                        let speaker = Speaker(id: id, name: name, ageRange: ageRange, topicBMM: topicBMM, topicAFN: topicAFN, topicCIS: topicCIS, topicSTS: topicSTS, topicHS: topicHS, topicHSE: topicHSE, comm: comm, bio: bio, phone: phone, website: "N/A", email: email)
                         speaks.append(speaker)
                     }
                 }
@@ -183,10 +205,10 @@ class Speakers: ObservableObject {
         })
     }
     
-    func filter(ageRange: String, comm: String, topic: String) {
+    func filter(ageRange: String, comm: String) {
         var list: [Speaker] = []
         for a in speakers {
-            if (ageRange == AgeKey.gk_12 || a.ageRange == ageRange) && (comm == CommKey.both || a.comm == comm) && (topic == TopicsKey.any || a.topic == topic) {
+            if (ageRange == AgeKey.gk_12 || a.ageRange == ageRange) && (comm == CommKey.both || a.comm == comm) {
                 list.append(a)
             }
         }
@@ -210,7 +232,7 @@ struct Subject: Identifiable {
 
 //MARK: Temp code
 struct TestSpeaker {
-    static let speaker = Speaker(
+    /*static let speaker = Speaker(
                             id: 0,
                             name: "AJ Taylor",
                             ageRange: AgeKey.g11_12,
@@ -219,5 +241,20 @@ struct TestSpeaker {
                             bio: "Programmer",
                             phone: "402-123-4567",
                             website: "google.com",
-                            email: "ajamest02@gmail.com")
+                            email: "ajamest02@gmail.com")*/
+    static let speaker = Speaker(
+        id: 0,
+        name: "AJ Taylor",
+        ageRange: AgeKey.g11_12,
+        topicBMM: "Nothing",
+        topicAFN: "Something",
+        topicCIS: "Some Topic",
+        topicSTS: "IDK",
+        topicHS: "Test",
+        topicHSE: "Something Else",
+        comm: CommKey.both,
+        bio: "Programmer",
+        phone: "402-123-4567",
+        website: "google.com",
+        email: "ajamest02@gmail.com")
 }

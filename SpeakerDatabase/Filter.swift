@@ -36,7 +36,7 @@ struct Filter: View {
                         FilterSel.topic = self.topic
                         
                         //Refines filter search
-                        self.speakers.filter(ageRange: AgeKey.ages[self.ageRange], comm: CommKey.methods[self.comm], topic: TopicsKey.topics[self.topic])
+                        self.speakers.filter(ageRange: AgeKey.ages[self.ageRange], comm: CommKey.methods[self.comm])
                         
                         //Dismisses filter
                         self.dismiss.toggle()
@@ -87,7 +87,7 @@ struct Filter: View {
                 }
                 
                 //Topics
-                Section() {
+                /*Section() {
                     Picker(selection: self.$topic, label: (
                         Text("Topic").bold()
                     )) {
@@ -96,7 +96,7 @@ struct Filter: View {
                                 .tag(index)
                         }
                     }
-                }
+                }*/
             }
             //.listStyle(GroupedListStyle())
             

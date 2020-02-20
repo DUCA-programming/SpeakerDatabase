@@ -80,7 +80,7 @@ struct Testor: View {
                     self.selections.comm = self.comm
                     self.selections.topic = self.topic
                     
-                    self.speakers.filter(ageRange: AgeKey.ages[self.ageRange], comm: CommKey.methods[self.comm], topic: TopicsKey.topics[self.topic])
+                    self.speakers.filter(ageRange: AgeKey.ages[self.ageRange], comm: CommKey.methods[self.comm])
                     
                     //Dismisses filter
                     self.dismiss.toggle()
